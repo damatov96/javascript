@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>20 Ejercicios con JavaScript</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #96ad45;}
+    section { margin-bottom: 40px; border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+    button { margin-top: 10px; padding: 10px 15px; border: none; background: #da0a41; color: white; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #da0a41; }
+    input[type="text"] { padding: 5px; }
+    h1 {
+      text-align: center;
+      font-size: 50px;
+      font-family: 'Pacifico', cursive;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejercicios JS</h1>
+  <section>
+    <h2>Alerta tranqui</h2>
+    <button onclick="alert('¡¡SURPRISE MOTHERFUCKER!!')">Tócame papi</button>
+  </section>
+
+  <section>
+    <h2>Cambia texto</h2>
+    <p id="texto2">Texto original</p>
+    <button onclick="document.getElementById('texto2').innerText = 'Bájale ya, garoso'">Tócame again</button>
+  </section>
+
+  <section>
+    <h2>Mostrar nombre</h2>
+    <input type="text" id="nombre3" placeholder="Escribe tu nombre">
+    <button onclick="alert('Hola ' + document.getElementById('nombre3').value)">Saludar</button>
+  </section>
+
+  <section>
+    <h2>Suma</h2>
+    <input type="number" id="num1_4"> +
+    <input type="number" id="num2_4">
+    <button onclick="alert(Number(num1_4.value) + Number(num2_4.value))">Sumar</button>
+  </section>
+
+  <section>
+    <h2>Cambiar color de fondo</h2>
+    <button onclick="document.body.style.backgroundColor = 'lightyellow'">Cambiar fondo</button>
+  </section>
+
+  <section>
+    <h2>Mostrar fecha actual</h2>
+    <button onclick="alert(new Date().toLocaleString())">Mostrar fecha y hora</button>
+  </section>
+
+  <section>
+    <h2>Mostrar mensaje oculto</h2>
+    <p id="oculto8" style="display: none;">¡Sorpresa! 🎉</p>
+    <button onclick="oculto8.style.display = 'block'">Mostrar mensaje</button>
+  </section>
+
+  <section>
+    <h2>Multiplicación</h2>
+    <input type="number" id="m1"> ×
+    <input type="number" id="m2">
+    <button onclick="alert(m1.value * m2.value)">Multiplicar</button>
+  </section>
+
+  <section>
+    <h2>Cambiar tamaño de texto</h2>
+    <p id="texto11">Este texto cambiará de tamaño</p>
+    <button onclick="texto11.style.fontSize = '30px'">Agrandar texto</button>
+  </section>
+
+
+  <section>
+    <h2>Contador automático</h2>
+    <p id="autoContador1">0</p>
+    <button onclick="iniciarContador1()">Iniciar</button>
+    <script>
+      let intervalo1;
+      function iniciarContador1() {
+        let numero = 0;
+        clearInterval(intervalo1);
+        intervalo1 = setInterval(() => {
+          numero++;
+          document.getElementById("autoContador1").innerText = numero;
+        }, 1000);
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Cambiar entre modo claro y oscuro</h2>
+    <button onclick="document.body.classList.toggle('oscuro')">Cambiar tema</button>
+    <style>
+      .oscuro {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </section>
+
+  <section>
+    <h2>Lista de frutas</h2>
+    <ul id="listaFrutas3"></ul>
+    <button onclick="mostrarFrutas3()">Mostrar frutas</button>
+    <script>
+      const frutas3 = ["Manzana", "Banana", "Fresa", "Uva"];
+      function mostrarFrutas3() {
+        const lista = document.getElementById("listaFrutas3");
+        lista.innerHTML = "";
+        frutas3.forEach(fruta => {
+          const item = document.createElement("li");
+          item.innerText = fruta;
+          lista.appendChild(item);
+        });
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Validar correo electrónico</h2>
+    <input type="text" id="email4" placeholder="Ingresa tu correo">
+    <button onclick="validarEmail4()">Validar</button>
+    <p id="mensaje4"></p>
+    <script>
+      function validarEmail4() {
+        const email = document.getElementById("email4").value;
+        const mensaje = document.getElementById("mensaje4");
+        if (email.includes("@") && email.includes(".")) {
+          mensaje.innerText = "Correo válido ✅";
+        } else {
+          mensaje.innerText = "Correo no válido ❌";
+        }
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Tabla de multiplicar</h2>
+    <input type="number" id="numero5" placeholder="Número">
+    <button onclick="mostrarTabla5()">Mostrar tabla</button>
+    <ul id="tabla5"></ul>
+    <script>
+      function mostrarTabla5() {
+        const num = Number(document.getElementById("numero5").value);
+        const tabla = document.getElementById("tabla5");
+        tabla.innerHTML = "";
+        for (let i = 1; i <= 10; i++) {
+          const li = document.createElement("li");
+          li.innerText = `${num} × ${i} = ${num * i}`;
+          tabla.appendChild(li);
+        }
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Cuenta regresiva</h2>
+    <input type="number" id="tiempo6" placeholder="Segundos">
+    <button onclick="iniciarTemporizador6()">Iniciar</button>
+    <p id="cuenta6"></p>
+    <script>
+      let intervalo6;
+      function iniciarTemporizador6() {
+        let tiempo = Number(document.getElementById("tiempo6").value);
+        clearInterval(intervalo6);
+        intervalo6 = setInterval(() => {
+          if (tiempo <= 0) {
+            clearInterval(intervalo6);
+            document.getElementById("cuenta6").innerText = "¡Tiempo terminado!";
+          } else {
+            document.getElementById("cuenta6").innerText = tiempo + " segundos";
+            tiempo--;
+          }
+        }, 1000);
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Invertir texto</h2>
+    <input type="text" id="texto7" placeholder="Escribe algo">
+    <button onclick="invertirTexto7()">Invertir</button>
+    <p id="invertido7"></p>
+    <script>
+      function invertirTexto7() {
+        const texto = document.getElementById("texto7").value;
+        const invertido = texto.split("").reverse().join("");
+        document.getElementById("invertido7").innerText = invertido;
+      }
+    </script>
+    </section>
+
+  <section>
+    <h2>Agregar tareas a una lista</h2>
+    <input type="text" id="tarea8" placeholder="Nueva tarea">
+    <button onclick="agregarTarea8()">Agregar</button>
+    <ul id="listaTareas8"></ul>
+    <script>
+      function agregarTarea8() {
+        const tarea = document.getElementById("tarea8").value;
+        if (tarea.trim() !== "") {
+          const li = document.createElement("li");
+          li.innerText = tarea;
+          document.getElementById("listaTareas8").appendChild(li);
+          document.getElementById("tarea8").value = "";
+        }
+      }
+    </script>
+  </section>
+
+  <section>
+    <h2>Día actual</h2>
+        <button onclick="mostrarDia9()">¿Qué día es hoy?</button>
+        <p id="dia9"></p>
+    <script>
+          function mostrarDia9() {
+            const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            const hoy = new Date().getDay();
+            document.getElementById("dia9").innerText = "Hoy es " + dias[hoy];
+  }
+</script>
+  </section>
+
+  <section>
+    <h2>Número más grande</h2>
+        <input type="number" id="numA10">
+        <input type="number" id="numB10">
+        <input type="number" id="numC10">
+        <button onclick="mostrarMayor10()">Ver mayor</button>
+        <p id="mayor10"></p>
+        <script>
+        function mostrarMayor10() {
+            const a = Number(document.getElementById("numA10").value);
+            const b = Number(document.getElementById("numB10").value);
+            const c = Number(document.getElementById("numC10").value);
+            const mayor = Math.max(a, b, c);
+            document.getElementById("mayor10").innerText = "El número más alto es: " + mayor;
+  }
+</script>
+  </section>
+
+  <section>
+    
+  <div class="calculadora">
+    <h2>Calculadorsita</h2>
+    <input type="number" id="num1" placeholder="Primer número">
+    <input type="number" id="num2" placeholder="Segundo número">
+
+    <select id="operacion">
+      <option value="sumar">Sumar</option>
+      <option value="restar">Restar</option>
+      <option value="multiplicar">Multiplicar</option>
+      <option value="dividir">Dividir</option>
+    </select>
+
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    function calcular() {
+      const a = parseFloat(document.getElementById("num1").value);
+      const b = parseFloat(document.getElementById("num2").value);
+      const operacion = document.getElementById("operacion").value;
+      let resultado;
+
+      if (isNaN(a) || isNaN(b)) {
+        resultado = "Por favor ingresa dos números válidos.";
+      } else {
+        switch (operacion) {
+          case "sumar":
+            resultado = a + b;
+            break;
+          case "restar":
+            resultado = a - b;
+            break;
+          case "multiplicar":
+            resultado = a * b;
+            break;
+          case "dividir":
+            resultado = b !== 0 ? a / b : "No se puede dividir entre 0";
+            break;
+        }
+      }
+
+      document.getElementById("resultado").innerText = "Resultado: " + resultado;
+    }
+  </script>
+
+  </section>
+
+</body>
+</html>
