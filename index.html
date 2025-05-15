@@ -15,65 +15,105 @@
       font-family: 'Pacifico', cursive;
       margin-top: 20px;
     }
+    
+    .grid-botones {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin: 30px auto;
+      max-width: 600px;
+    }
+
+    .grid-botones button {
+      padding: 15px;
+      border: none;
+      background: #da0a41;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .grid-botones button:hover {
+      background: #c00b39;
+    }
+
+    section {
+      display: none;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
-  <h1>Ejercicios JS</h1>
-  <section>
+  <h1>Ejercicios JavaScript</h1>
+    <div class="grid-botones">
+    <script>
+      for (let i = 1; i <= 20; i++) {
+        document.write(`<button onclick="mostrarEjercicio(${i})">Ejercicio ${i}</button>`);
+      }
+    </script>
+  </div>
+
+  <section id="number1">
     <h2>Alerta tranqui</h2>
     <button onclick="alert('¡¡SURPRISE MOTHERFUCKER!!')">Tócame papi</button>
   </section>
 
-  <section>
+  <section id="number2">
     <h2>Cambia texto</h2>
     <p id="texto2">Texto original</p>
     <button onclick="document.getElementById('texto2').innerText = 'Bájale ya, garoso'">Tócame again</button>
   </section>
 
-  <section>
+  <section id="number3">
     <h2>Mostrar nombre</h2>
     <input type="text" id="nombre3" placeholder="Escribe tu nombre">
     <button onclick="alert('Hola ' + document.getElementById('nombre3').value)">Saludar</button>
   </section>
 
-  <section>
+  <section id="number4">
     <h2>Suma</h2>
     <input type="number" id="num1_4"> +
     <input type="number" id="num2_4">
     <button onclick="alert(Number(num1_4.value) + Number(num2_4.value))">Sumar</button>
   </section>
 
-  <section>
+  <section id="number5">
     <h2>Cambiar color de fondo</h2>
     <button onclick="document.body.style.backgroundColor = 'lightyellow'">Cambiar fondo</button>
   </section>
 
-  <section>
+  <section id="number6">
     <h2>Mostrar fecha actual</h2>
     <button onclick="alert(new Date().toLocaleString())">Mostrar fecha y hora</button>
   </section>
 
-  <section>
+  <section id="number7">
     <h2>Mostrar mensaje oculto</h2>
     <p id="oculto8" style="display: none;">¡Sorpresa! 🎉</p>
     <button onclick="oculto8.style.display = 'block'">Mostrar mensaje</button>
   </section>
 
-  <section>
+  <section id="number8">
     <h2>Multiplicación</h2>
     <input type="number" id="m1"> ×
     <input type="number" id="m2">
     <button onclick="alert(m1.value * m2.value)">Multiplicar</button>
   </section>
 
-  <section>
+  <section id="number9">
     <h2>Cambiar tamaño de texto</h2>
     <p id="texto11">Este texto cambiará de tamaño</p>
     <button onclick="texto11.style.fontSize = '30px'">Agrandar texto</button>
   </section>
 
 
-  <section>
+  <section id="number10">
     <h2>Contador automático</h2>
     <p id="autoContador1">0</p>
     <button onclick="iniciarContador1()">Iniciar</button>
@@ -90,7 +130,7 @@
     </script>
   </section>
 
-  <section>
+  <section id="number11">
     <h2>Cambiar entre modo claro y oscuro</h2>
     <button onclick="document.body.classList.toggle('oscuro')">Cambiar tema</button>
     <style>
@@ -101,12 +141,12 @@
     </style>
   </section>
 
-  <section>
-    <h2>Lista de frutas</h2>
+  <section id="number12">
+    <h2>Lista de equipos</h2>
     <ul id="listaFrutas3"></ul>
     <button onclick="mostrarFrutas3()">Mostrar frutas</button>
     <script>
-      const frutas3 = ["Manzana", "Banana", "Fresa", "Uva"];
+      const frutas3 = ["Real Madrid", "Barcelona", "Manchester United", "Chelsea", "Arsenal"];
       function mostrarFrutas3() {
         const lista = document.getElementById("listaFrutas3");
         lista.innerHTML = "";
@@ -119,7 +159,7 @@
     </script>
   </section>
 
-  <section>
+  <section id="number13">
     <h2>Validar correo electrónico</h2>
     <input type="text" id="email4" placeholder="Ingresa tu correo">
     <button onclick="validarEmail4()">Validar</button>
@@ -137,7 +177,7 @@
     </script>
   </section>
 
-  <section>
+  <section id="number14">
     <h2>Tabla de multiplicar</h2>
     <input type="number" id="numero5" placeholder="Número">
     <button onclick="mostrarTabla5()">Mostrar tabla</button>
@@ -156,7 +196,7 @@
     </script>
   </section>
 
-  <section>
+  <section id="number15">
     <h2>Cuenta regresiva</h2>
     <input type="number" id="tiempo6" placeholder="Segundos">
     <button onclick="iniciarTemporizador6()">Iniciar</button>
@@ -179,7 +219,7 @@
     </script>
   </section>
 
-  <section>
+  <section id="number16">
     <h2>Invertir texto</h2>
     <input type="text" id="texto7" placeholder="Escribe algo">
     <button onclick="invertirTexto7()">Invertir</button>
@@ -193,7 +233,7 @@
     </script>
     </section>
 
-  <section>
+  <section id="number17">
     <h2>Agregar tareas a una lista</h2>
     <input type="text" id="tarea8" placeholder="Nueva tarea">
     <button onclick="agregarTarea8()">Agregar</button>
@@ -211,7 +251,7 @@
     </script>
   </section>
 
-  <section>
+  <section id="number18">
     <h2>Día actual</h2>
         <button onclick="mostrarDia9()">¿Qué día es hoy?</button>
         <p id="dia9"></p>
@@ -224,7 +264,7 @@
 </script>
   </section>
 
-  <section>
+  <section id="number19">
     <h2>Número más grande</h2>
         <input type="number" id="numA10">
         <input type="number" id="numB10">
@@ -242,7 +282,7 @@
 </script>
   </section>
 
-  <section>
+  <section id="number20">
     
   <div class="calculadora">
     <h2>Calculadorsita</h2>
@@ -287,6 +327,21 @@
       }
 
       document.getElementById("resultado").innerText = "Resultado: " + resultado;
+    }
+  </script>
+
+    <script>
+    function mostrarEjercicio(n) {
+      // Oculta todos los ejercicios
+      const secciones = document.querySelectorAll('section');
+      secciones.forEach(sec => sec.style.display = 'none');
+
+      // Muestra el seleccionado
+      const actual = document.getElementById('number' + n);
+      if (actual) actual.style.display = 'block';
+      
+      // Desplaza hacia el ejercicio
+      actual.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
